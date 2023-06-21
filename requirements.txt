@@ -44,3 +44,15 @@ ipyleaflet
 # Python: plotting libraries (optional)
 plotly>=5,<6
 bqplot
+
+
+# Custom requirements
+tskit
+msprime
+tsinfer
+tsdate
+demesdraw
+seaborn
+jupyterquiz
+jupyterlab-filesystem-access
+networkx
