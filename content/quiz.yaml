@@ -1,0 +1,60 @@
+HOWTO:
+  Q1:
+    -
+      question: >-
+        What is the name of the Python distribution that runs in the browser?
+      type: many_choice
+      answers:
+        - answer: PythonBrowser
+          correct: false
+        - answer: Pyodide
+          correct: true
+  Q2:
+    -
+        question: What calendar day is it?
+        type: numeric
+        answers:
+          - type: value
+            correct: true
+            feedback: correct
+          - type: range
+            correct: false
+            range: [0, 31]
+            feedback: >-
+              Try again (hint: look at your calendar :-))
+
+
+CoalescentHandson:
+  Q1:
+    - question: >-
+        The second time you draw from the exponential distribution, what
+        is the value of the parameter lambda?
+      type: numeric
+      answers:
+        - type: value
+          correct: true
+          feedback: >-
+            Correct. The number of chromosomes is 3, which gives us
+            lambda = 3 * (3 - 1) / 2 = 3
+          value: 3
+        - type: range
+          correct: false
+          range: [0, 100]
+          feedback: >-
+            Try again (hint: how many remaining chromosomes do you have?)
+    - question:
+        The third time you draw from the exponential distribution, what
+        is the value of the parameter lambda?
+      type: numeric
+      answers:
+        - type: value
+          correct: true
+          feedback: >-
+            Correct. The number of chromosomes is 2, which gives us
+            lambda = 2 * (2 - 1) / 2 = 1
+          value: 1
+        - type: range
+          correct: false
+          range: [0, 100]
+          feedback: >-
+            Try again (hint: how many remaining chromosomes do you have?)
