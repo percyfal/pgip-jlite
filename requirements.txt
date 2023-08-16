@@ -45,7 +45,6 @@ ipyleaflet
 plotly>=5,<6
 bqplot
 
-
 # Custom requirements
 tskit
 msprime
@@ -56,4 +55,5 @@ seaborn
 jupyterquiz
 jupyterlab-filesystem-access
 networkx
-
+pyyaml
+drawsvg
