@@ -8,6 +8,8 @@ HOWTO:
       answers:
         - answer: PythonBrowser
           correct: false
+          feedback: >-
+            Hint: reread the text!
         - answer: Pyodide
           correct: true
   Q2:
@@ -107,6 +109,39 @@ CoalescentHandson:
           feedback: >-
             Try again. Equate $S$ with the Poisson mean and solve for
             $\theta$.
+  Q4a:
+    - question: >-
+        How many nodes are needed to represent a tree with $n=10$
+        samples?
+      type: numeric
+      answers:
+        - type: value
+          correct: true
+          value: 19
+          feedback: >-
+            Correct! The number of nodes is equal to $2n-1$.
+        - type: default
+          feedback: >-
+            Try again. Hint: calculate the number of nodes for some
+            values of $n$, say 2, 3, 4, and see if you can detect a
+            pattern.
+  Q4b:
+    - question: >-
+        How many edges are needed to represent a tree with $n=10$
+        samples?
+      type: numeric
+      answers:
+        - type: value
+          correct: true
+          value: 18
+          feedback: >-
+            Correct! The number of edges is equal to the number of
+            nodes minus 1, or $2n-2$.
+        - type: default
+          feedback: >-
+            Try again. Hint: calculate the number of edges for some
+            values of $n$, say 2, 3, 4, and see if you can detect a
+            pattern.
 
 
 

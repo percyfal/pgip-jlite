@@ -1,10 +1,11 @@
 from datetime import datetime
 
-import drawsvg as draw
 import tqdm
 import yaml
 from IPython.core.display import HTML
 from jupyterquiz import display_quiz
+from model.coal import make_tree
+from model.draw import draw_tree
 
 
 def load_quiz(section):
@@ -167,31 +168,13 @@ class CoalescentHandson(Workbook):
         super().__init__()
 
     def _draw_coalescent(self):
-        d = draw.Drawing(210, 210, id_prefix="coal")
-        d.append(draw.Circle(10, 190, 5, fill="black", stroke="black"))
-        d.append(draw.Text("1", 18, 20, 210))
-        d.append(draw.Circle(70, 190, 5, fill="black", stroke="black"))
-        d.append(draw.Text("2", 18, 80, 210))
-        d.append(draw.Circle(130, 190, 5, fill="black", stroke="black"))
-        d.append(draw.Text("3", 18, 140, 210))
-        d.append(draw.Circle(200, 190, 5, fill="black", stroke="black"))
-        d.append(draw.Text("4", 18, 200, 210))
-
-        d.append(draw.Circle(40, 140, 5, fill="black", stroke="black"))
-        d.append(draw.Text("5", 18, 50, 150))
-
-        d.append(draw.Circle(90, 100, 5, fill="black", stroke="black"))
-        d.append(draw.Text("6", 18, 100, 110))
-
-        d.append(draw.Circle(130, 10, 5, fill="black", stroke="black"))
-        d.append(draw.Text("7", 18, 140, 20))
-
-        d.append(draw.Line(130, 10, 90, 100, stroke="black"))
-        d.append(draw.Line(130, 10, 200, 190, stroke="black"))
-        d.append(draw.Line(90, 100, 130, 190, stroke="black"))
-        d.append(draw.Line(90, 100, 40, 140, stroke="black"))
-        d.append(draw.Line(40, 140, 70, 190, stroke="black"))
-        d.append(draw.Line(40, 140, 10, 190, stroke="black"))
+        d = draw_tree(
+            make_tree([5, 6, 4, 4, 5, 6], [0.3, 0.9, 0.1, 0.1, 0.2, 0.6, 0.9]),
+            node_labels=True,
+            node_size=3,
+            height=400,
+            jitter_label=(0, 20),
+        )
         return d
 
     def draw(self, which):
