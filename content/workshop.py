@@ -171,6 +171,7 @@ class CoalescentHandson(Workbook):
         d = draw_tree(
             make_tree([5, 6, 4, 4, 5, 6], [0.3, 0.9, 0.1, 0.1, 0.2, 0.6, 0.9]),
             node_labels=True,
+            show_internal=True,
             node_size=3,
             height=400,
             jitter_label=(0, 20),
