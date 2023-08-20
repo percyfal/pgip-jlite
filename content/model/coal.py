@@ -75,7 +75,7 @@ class Node:
     ):
         self.id = id
         if label is None:
-            self.label = str(id)
+            self.label = id
         self.ancestor = ancestor
         self.left = left
         self.right = right
@@ -124,9 +124,18 @@ class Node:
         lid = self.left.id if self.left is not None else None
         rid = self.right.id if self.right is not None else None
         return (
-            f"Node(id={self.id}, time={self.time}, tau={self.tau}, "
+            f"Node(id={self.id}, label={self.label}, "
+            f"time={self.time}, tau={self.tau}, mutations={self.mutations} "
             f"ancestor_id={aid}, left={lid}, right={rid})"
         )
+
+
+def add_mutations(tree, mutations):
+    for i, _ in enumerate(tree.nodes):
+        n = tree.nodes[i]
+        if n == tree.mrca:
+            continue
+        tree.nodes[i].mutations = mutations[n.label]
 
 
 def make_tree(ancestors, branches):
@@ -206,3 +215,12 @@ def sim_ancestry(samples):
     for j in nodes[0 : len(ancestors)]:
         branches[j] = age[ancestors[j]] - age[j]
     return ancestors, branches
+
+
+def sim_mutations(branches, *, theta):
+    tau = np.array(branches)
+    Ttot = np.sum(tau)
+    p = tau / Ttot
+    S = scipy.stats.poisson(theta * Ttot / 1).rvs()
+    mutations = scipy.stats.multinomial(n=S, p=p).rvs().flatten()
+    return mutations

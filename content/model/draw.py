@@ -1,5 +1,6 @@
 import drawsvg as dw
 import numpy as np
+from model.coal import add_mutations
 from model.coal import Coordinate
 from model.coal import make_tree
 from model.coal import Tree
@@ -14,8 +15,8 @@ def draw_tree(
     node_labels=False,
     show_internal=False,
     font_size=18,
-    mutation_labels=None,
     node_size=0,
+    mutation_size=3,
     jitter_label=(0, 0),
     **kwargs
 ):
@@ -61,10 +62,30 @@ def draw_tree(
         if node_labels and show_labels:
             # Calculate node placement
             p = n.plot_coords + Coordinate(x=jitter_label[0], y=jitter_label[1])
-            d.append(dw.Text(n.label, font_size, p.x, p.y, center=True))
+            d.append(dw.Text(str(n.label), font_size, p.x, p.y, center=True))
+        # Add mutations
+        for i in range(n.mutations):
+            mut = (n.ancestor.plot_coords - n.plot_coords) * (i + 1) / (
+                n.mutations + 1
+            ) + n.plot_coords
+            upper_left = Coordinate(
+                mut.x - mutation_size / 2, mut.y + mutation_size / 2
+            )
+            d.append(
+                dw.Rectangle(
+                    upper_left.x,
+                    upper_left.y,
+                    mutation_size,
+                    mutation_size,
+                    fill="black",
+                    stroke="black",
+                )
+            )
     return d
 
 
-def plot_ancestry(ancestors, branches, **kwargs):
+def plot_ancestry(ancestors, branches, mutations=None, **kwargs):
     tree = make_tree(ancestors, branches)
+    if mutations is not None:
+        tree = add_mutations(tree, mutations)
     return draw_tree(tree, **kwargs)

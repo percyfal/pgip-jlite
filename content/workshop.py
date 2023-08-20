@@ -4,6 +4,7 @@ import tqdm
 import yaml
 from IPython.core.display import HTML
 from jupyterquiz import display_quiz
+from model.coal import add_mutations
 from model.coal import make_tree
 from model.draw import draw_tree
 
@@ -166,14 +167,32 @@ class WrightFisher(Workbook):
 class CoalescentHandson(Workbook):
     def __init__(self):
         super().__init__()
+        ancestors = [5, 6, 4, 4, 5, 6]
+        branches = [0.3, 0.9, 0.1, 0.1, 0.2, 0.6, 0.9]
+        self.tree = make_tree(ancestors, branches)
+        mutations = [0, 2, 0, 1, 1, 2, 0]
+        add_mutations(self.tree, mutations)
 
     def _draw_coalescent(self):
         d = draw_tree(
-            make_tree([5, 6, 4, 4, 5, 6], [0.3, 0.9, 0.1, 0.1, 0.2, 0.6, 0.9]),
+            self.tree,
             node_labels=True,
             show_internal=True,
             node_size=3,
             height=400,
+            mutation_size=0,
+            jitter_label=(0, 20),
+        )
+        return d
+
+    def _draw_coalescent_w_mutations(self):
+        d = draw_tree(
+            self.tree,
+            node_labels=True,
+            show_internal=True,
+            node_size=3,
+            height=400,
+            mutation_size=5,
             jitter_label=(0, 20),
         )
         return d
@@ -181,6 +200,8 @@ class CoalescentHandson(Workbook):
     def draw(self, which):
         if which == "coalescent_tree":
             return self._draw_coalescent()
+        elif which == "coalescent_tree_w_mutations":
+            return self._draw_coalescent_w_mutations()
 
 
 def setup_coalescent_handson():
