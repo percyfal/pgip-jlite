@@ -69,7 +69,7 @@ def draw_tree(
                 n.mutations + 1
             ) + n.plot_coords
             upper_left = Coordinate(
-                mut.x - mutation_size / 2, mut.y + mutation_size / 2
+                mut.x - mutation_size / 2, mut.y - mutation_size / 2
             )
             d.append(
                 dw.Rectangle(

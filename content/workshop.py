@@ -55,7 +55,7 @@ color_dict = {
         "teal75"
     ],  # Color of inset shadow for pressed buttons
     "--jq-many-choice-bg": scilife_colors[
-        "teal25"
+        "lime"
     ],  # Background for question part of many-choice questions
     "--jq-numeric-bg": scilife_colors[
         "lime"
