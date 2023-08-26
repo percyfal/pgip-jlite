@@ -239,3 +239,70 @@ MsprimeSimulations:
           feedback: >-
             Try again! Hint: browse through the functions and look for
             a property that provides access to the node times.
+  recombination:
+    - question: >-
+        At what position has the second recombination taken place?
+      type: numeric
+      answers:
+        - type: value
+          correct: true
+          value: 9138
+          feedback: >-
+            Correct!
+        - type: default
+          feedback: >-
+            Try again! Hint: look at the coordinates. You could also
+            list the tree sequence breakpoints with
+            <tt>list(ts.breakpoints())</tt>
+  large_ancestry:
+    - question: >-
+        How many trees did the simulation produce?
+      type: numeric
+      answers:
+        - type: value
+          correct: true
+          value: 8333
+          feedback: >-
+            Correct!
+        - type: default
+          feedback: >-
+            Try again! Hint: don't forget to set the effective
+            population size to 20,000!
+  mutation_id:
+    - question: >-
+        Locate the ID of the site with two (recurrent) mutations.
+      type: numeric
+      answers:
+        - type: value
+          correct: true
+          value: 3
+          feedback: Correct!
+        - type:
+          feedback: >-
+            Try again! Hint: you can access the tables via the
+            <tt>mts_small.tables</tt> property.
+  large_mutation:
+    - question: >-
+        How many variable sites are in the tree sequence?
+      type: numeric
+      answers:
+        - type: value
+          correct: true
+          value: 8805
+          feedback: Correct!
+        - type: default
+          feedback: >-
+            Try again!
+    - question: >-
+        What is the size in megabytes (MiB) of the tree sequence file?
+      type: numeric
+      answers:
+        - type: value
+          correct: true
+          value: 7.6
+          feedback: Correct!
+        - type: default
+          feedback: >-
+            Try again! Hint: print the ts object and look for Total
+            Size.
+
