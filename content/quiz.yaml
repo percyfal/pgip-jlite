@@ -223,3 +223,19 @@ CoalescentHandson:
             Try again. Hint: calculate the number of edges for some
             values of $n$, say 2, 3, 4, and see if you can detect a
             pattern.
+MsprimeSimulations:
+  tskit_tables:
+    - question: >-
+        What is the age of the MRCA? Answer with three decimal places.
+      type: numeric
+      answers:
+        - type: value
+          correct: true
+          value: 3.835
+          feedback: >-
+            Correct! You can get the value by typing
+            <tt>max(ts.nodes_time)</tt>.
+        - type: default
+          feedback: >-
+            Try again! Hint: browse through the functions and look for
+            a property that provides access to the node times.

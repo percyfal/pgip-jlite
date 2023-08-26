@@ -204,6 +204,15 @@ class CoalescentHandson(Workbook):
             return self._draw_coalescent_w_mutations()
 
 
+class MsprimeSimulations(Workbook):
+    def __init__(self):
+        super().__init__()
+
+
+def setup_msprime_simulations():
+    return MsprimeSimulations()
+
+
 def setup_coalescent_handson():
     return CoalescentHandson()
 
