@@ -156,7 +156,7 @@ class Workbook:
 class HOWTO(Workbook):
     def __init__(self):
         super().__init__()
-        self.quiz["Q2"][0]["answers"][0]["value"] = datetime.today().day
+        self.quiz["day"][0]["answers"][0]["value"] = datetime.today().day
 
 
 class WrightFisher(Workbook):
