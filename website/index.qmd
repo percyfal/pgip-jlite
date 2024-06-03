@@ -1,0 +1,9 @@
+# Welcome
+
+## Lectures 
+
+[](users/percyfal/index.qmd)
+
+## JupyterLite exercises
+
+[](jlite/index.html)

@@ -1,0 +1,18 @@
+---
+title: Simulation
+subtitle: Simulation with msprime
+author: Per Unneberg
+date: "19 August, 2024"
+---
+
+## Setup  {.unnumbered .unlisted visibility="hidden"}
+
+# Topics
+
+## Slide 1
+
+Content
+
+## Slide 2
+
+Some more content
