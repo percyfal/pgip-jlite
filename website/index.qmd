@@ -1,9 +1,13 @@
+---
+format: html
+---
+
 # Welcome
 
 ## Lectures 
 
-[](users/percyfal/index.qmd)
+[percyfal](users/percyfal/index.qmd)
 
 ## JupyterLite exercises
 
-[](jlite/index.html)
+[jlite](jlite/index.html)

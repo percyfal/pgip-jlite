@@ -20,7 +20,7 @@ jobs:
           quarto --version
       - name: Build Quarto pages
         run: |
-          quarto render website --output-dir dist
+          quarto render website --output-dir ../dist
       - name: Setup Python
         uses: actions/setup-python@v4
         with:

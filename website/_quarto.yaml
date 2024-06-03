@@ -3,7 +3,7 @@ project:
   render:
     - index.qmd
     - users/percyfal/index.qmd
-    - users/percyfal/lectures/simulation/index.qmd
+    - users/percyfal/simulation/index.qmd
 institute: NBIS
 from: markdown+emoji
 format:
